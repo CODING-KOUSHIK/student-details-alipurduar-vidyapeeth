@@ -10,25 +10,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary:     #FF6B35;
-            --primary-dim: rgba(255,107,53,0.16);
-            --secondary:   #FFB347;
-            --bg:          #080912;
-            --bg-card:     rgba(255,255,255,0.045);
-            --bg-card-h:   rgba(255,255,255,0.08);
-            --border:      rgba(255,255,255,0.1);
-            --border-h:    rgba(255,255,255,0.22);
-            --txt1:        #F3F5FC;
-            --txt2:        #9CA3AF;
-            --txt3:        #6B7280;
-            --success:     #10B981;
-            --success-dim: rgba(16,185,129,0.15);
-            --danger:      #EF4444;
-            --danger-dim:  rgba(239,68,68,0.16);
-            --absent:      #8B5CF6;
-            --absent-dim:  rgba(139,92,246,0.18);
-            --warn:        #F59E0B;
-            --grad:        linear-gradient(135deg,#FF6B35,#FFB347);
+            --primary:         #FF6B35;
+            --primary-dim:     rgba(255,107,53,0.16);
+            --secondary:       #FFB347;
+            --bg:              #080912;
+            --bg-card:         rgba(255,255,255,0.045);
+            --bg-card-h:       rgba(255,255,255,0.08);
+            --border:          rgba(255,255,255,0.11);
+            --border-h:        rgba(255,255,255,0.24);
+            --txt1:            #F3F5FC;
+            --txt2:            #9CA3AF;
+            --txt3:            #6B7280;
+            --success:         #10B981;
+            --success-dim:     rgba(16,185,129,0.16);
+            --warn:            #F59E0B;
+            --warn-dim:        rgba(245,158,11,0.16);
+
+            /* Professional High-Visibility Selection Colors (NO RED) */
+            /* Not Done = High-Contrast Sunburst Amber */
+            --notdone:         #F59E0B;
+            --notdone-bright:  #FBBF24;
+            --notdone-bg:      rgba(245,158,11,0.22);
+            --notdone-glow:    rgba(245,158,11,0.45);
+
+            /* Absent = Electric Neon Violet / Indigo */
+            --absent:          #8B5CF6;
+            --absent-bright:   #A78BFA;
+            --absent-bg:       rgba(139,92,246,0.24);
+            --absent-glow:     rgba(139,92,246,0.45);
+
+            --grad:            linear-gradient(135deg,#FF6B35,#FFB347);
         }
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
@@ -104,12 +115,13 @@
         .school-sub{font-size:.74rem;color:var(--txt2);font-weight:500;margin-top:2px}
         .header-actions{display:flex;align-items:center;gap:8px}
         .bday-pill-btn{
-            display:none;align-items:center;gap:6px;padding:7px 12px;
-            background:linear-gradient(135deg,rgba(124,58,237,.25),rgba(236,72,153,.25));
-            border:1px solid rgba(236,72,153,.4);color:#ffd6e7;border-radius:20px;
-            font-size:.78rem;font-weight:700;transition:all .2s;
+            display:none;align-items:center;gap:6px;padding:7px 14px;
+            background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(236,72,153,.3));
+            border:1.5px solid rgba(236,72,153,.5);color:#ffd6e7;border-radius:20px;
+            font-size:.8rem;font-weight:700;transition:all .2s;
+            box-shadow:0 2px 12px rgba(236,72,153,.25);
         }
-        .bday-pill-btn:hover{transform:scale(1.04);background:linear-gradient(135deg,rgba(124,58,237,.4),rgba(236,72,153,.4))}
+        .bday-pill-btn:hover{transform:scale(1.04);background:linear-gradient(135deg,rgba(124,58,237,.45),rgba(236,72,153,.45))}
         .icon-btn{
             width:42px;height:42px;border-radius:11px;border:1px solid var(--border);
             background:var(--bg-card);color:var(--txt2);font-size:1.15rem;
@@ -163,7 +175,7 @@
         .spinner{width:48px;height:48px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .75s linear infinite}
         @keyframes spin{to{transform:rotate(360deg)}}
         #loading-wrap p{color:var(--txt2);font-size:.92rem}
-        #error-wrap{display:none;background:var(--danger-dim);border:1px solid rgba(239,68,68,.3);border-radius:16px;padding:28px;text-align:center;color:var(--danger)}
+        #error-wrap{display:none;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,.35);border-radius:16px;padding:28px;text-align:center;color:#FBBF24}
 
         /* ── Students Section Header ── */
         .sec-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:20px}
@@ -184,19 +196,24 @@
         /* ── Hint / Tap Guide Legend ── */
         .hint{border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:.86rem;line-height:1.6}
         .hint-hw{background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.22);color:#FFB347}
-        .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
-        .leg-item{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:var(--txt1)}
-        .leg-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+        .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+        .leg-item{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:700;color:var(--txt1)}
+        .leg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
 
-        /* ── Bulk Actions Row ── */
+        /* ── Bulk Actions Row (NO RED) ── */
         .bulk-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
         .sm-btn{
-            padding:8px 18px;border-radius:10px;border:1px solid var(--border);
+            padding:9px 18px;border-radius:10px;border:1.5px solid var(--border);
             background:var(--bg-card);color:var(--txt1);font-size:.85rem;font-weight:700;
             transition:all .2s;
         }
         .sm-btn:hover{background:var(--bg-card-h);border-color:var(--border-h)}
-        .sm-btn.red:hover{border-color:var(--danger);color:var(--danger);background:var(--danger-dim)}
+        .sm-btn.amber-btn:hover{
+            border-color:var(--notdone-bright);color:#FDE68A;background:rgba(245,158,11,0.18);
+        }
+        .sm-btn.green-btn:hover{
+            border-color:var(--success);color:#A7F3D0;background:rgba(16,185,129,0.18);
+        }
 
         /* ── Student Grid (Optimized for Smart Boards and Phones) ── */
         .stu-grid{
@@ -213,7 +230,7 @@
             border-radius:18px;
             padding:12px;
             cursor:pointer;
-            transition:all .25s cubic-bezier(.4,0,.2,1);
+            transition:all .22s cubic-bezier(.4,0,.2,1);
             position:relative;
             overflow:hidden;
             display:flex;
@@ -242,7 +259,7 @@
             align-items:center;
             justify-content:center;
             flex-shrink:0;
-            transition:border-color .3s;
+            transition:border-color .25s, transform .25s;
         }
         .stu-box-frame img{
             width:100%;
@@ -299,13 +316,13 @@
             margin-top:4px;
         }
         .stu-status-badge{
-            font-size:.72rem;
-            font-weight:800;
+            font-size:.74rem;
+            font-weight:900;
             text-transform:uppercase;
-            letter-spacing:.5px;
+            letter-spacing:.6px;
             margin-top:6px;
-            padding:3px 10px;
-            border-radius:12px;
+            padding:4px 12px;
+            border-radius:14px;
             display:inline-block;
             transition:all .2s;
             opacity:0;
@@ -323,40 +340,71 @@
         }
         @keyframes bounceBday{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 
-        /* Card States */
-        /* Not Done: Single Tap */
+        /* ── SELECTION STATES (HIGH VISIBILITY & NO RED) ── */
+        
+        /* 1. NOT DONE: Single Tap -> High-Contrast Sunburst Amber Glow & Banner */
         .stu-card.not-done{
-            border-color:var(--danger);
-            background:var(--danger-dim);
-            box-shadow:0 0 20px rgba(239,68,68,0.25);
+            border:3.5px solid var(--notdone-bright) !important;
+            background:linear-gradient(180deg, rgba(245,158,11,0.28) 0%, rgba(26,18,6,0.92) 100%) !important;
+            box-shadow:0 0 26px var(--notdone-glow), inset 0 0 14px rgba(245,158,11,0.2) !important;
+            transform:translateY(-2px);
         }
-        .stu-card.not-done .stu-box-frame{border-color:var(--danger)}
-        .stu-card.not-done .state-icon{opacity:1;transform:scale(1);background:var(--danger)}
+        .stu-card.not-done .stu-box-frame{
+            border:2.5px solid var(--notdone-bright) !important;
+        }
+        .stu-card.not-done .state-icon{
+            opacity:1;
+            transform:scale(1);
+            background:var(--notdone-bright);
+            color:#000000;
+            font-weight:900;
+            box-shadow:0 3px 12px rgba(245,158,11,0.7);
+        }
         .stu-card.not-done .stu-status-badge{
-            opacity:1;visibility:visible;background:var(--danger);color:#fff;
+            opacity:1;
+            visibility:visible;
+            background:var(--notdone-bright);
+            color:#000000;
+            font-weight:900;
+            box-shadow:0 2px 10px rgba(245,158,11,0.6);
         }
 
-        /* Absent: Double Tap */
+        /* 2. ABSENT: Double Tap -> High-Contrast Royal Violet Glow & Banner */
         .stu-card.absent{
-            border-color:var(--absent);
-            background:var(--absent-dim);
-            box-shadow:0 0 20px rgba(139,92,246,0.25);
+            border:3.5px solid var(--absent-bright) !important;
+            background:linear-gradient(180deg, rgba(139,92,246,0.32) 0%, rgba(20,12,38,0.92) 100%) !important;
+            box-shadow:0 0 26px var(--absent-glow), inset 0 0 14px rgba(139,92,246,0.2) !important;
+            transform:translateY(-2px);
         }
-        .stu-card.absent .stu-box-frame{border-color:var(--absent)}
-        .stu-card.absent .state-icon{opacity:1;transform:scale(1);background:var(--absent)}
+        .stu-card.absent .stu-box-frame{
+            border:2.5px solid var(--absent-bright) !important;
+        }
+        .stu-card.absent .state-icon{
+            opacity:1;
+            transform:scale(1);
+            background:var(--absent-bright);
+            color:#ffffff;
+            font-weight:900;
+            box-shadow:0 3px 12px rgba(139,92,246,0.7);
+        }
         .stu-card.absent .stu-status-badge{
-            opacity:1;visibility:visible;background:var(--absent);color:#fff;
+            opacity:1;
+            visibility:visible;
+            background:var(--absent-bright);
+            color:#ffffff;
+            font-weight:900;
+            box-shadow:0 2px 10px rgba(139,92,246,0.6);
         }
 
         /* Floating Corner State Icon */
         .state-icon{
             position:absolute;top:10px;right:10px;
-            width:32px;height:32px;border-radius:50%;
+            width:34px;height:34px;border-radius:50%;
             display:flex;align-items:center;justify-content:center;
-            font-size:.9rem;color:#fff;opacity:0;transform:scale(0);
-            box-shadow:0 3px 10px rgba(0,0,0,.5);
-            transition:all .3s cubic-bezier(.34,1.56,.64,1);
-            z-index:2;
+            font-size:.95rem;opacity:0;transform:scale(0);
+            box-shadow:0 3px 12px rgba(0,0,0,.6);
+            transition:all .28s cubic-bezier(.34,1.56,.64,1);
+            z-index:3;
         }
 
         /* Ripple Effect */
@@ -364,23 +412,23 @@
         .ripple-el{
             position:absolute;border-radius:50%;width:70px;height:70px;
             left:50%;top:50%;transform:translate(-50%,-50%) scale(0);
-            animation:ripple .55s linear forwards;pointer-events:none;z-index:3;
+            animation:ripple .55s linear forwards;pointer-events:none;z-index:4;
         }
 
         /* ── Fixed Footer Bar ── */
         .footer-bar{
             position:fixed;bottom:0;left:0;right:0;z-index:150;
-            background:rgba(8,9,18,.94);backdrop-filter:blur(28px);
+            background:rgba(8,9,18,.95);backdrop-filter:blur(28px);
             border-top:1px solid var(--border);padding:14px 24px;
-            box-shadow:0 -10px 30px rgba(0,0,0,.5);
+            box-shadow:0 -10px 30px rgba(0,0,0,.55);
         }
         .footer-inner{
             max-width:1280px;margin:0 auto;display:flex;align-items:center;
             justify-content:space-between;flex-wrap:wrap;gap:12px;
         }
-        .stats-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+        .stats-row{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
         .stat-item{display:flex;align-items:center;gap:8px;font-size:.92rem}
-        .stat-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+        .stat-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
         .btn-cs{
             padding:13px 26px;border-radius:12px;background:var(--grad);border:none;
             color:#fff;font-size:.96rem;font-weight:700;
@@ -391,7 +439,7 @@
 
         /* ── Modals / Overlays ── */
         .overlay{
-            position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.85);
+            position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.86);
             backdrop-filter:blur(14px);display:none;align-items:center;
             justify-content:center;padding:16px;
         }
@@ -411,7 +459,7 @@
             background:transparent;color:var(--txt2);font-size:1.1rem;
             display:flex;align-items:center;justify-content:center;transition:all .2s;
         }
-        .mod-close:hover{background:var(--danger-dim);color:var(--danger);border-color:var(--danger)}
+        .mod-close:hover{background:rgba(255,255,255,.1);color:#fff;border-color:var(--border-h)}
         .msg-box{
             background:#171829;border:1px solid rgba(255,255,255,.07);border-radius:14px;
             padding:18px;font-size:.875rem;line-height:1.85;white-space:pre-wrap;
@@ -430,11 +478,11 @@
         }
         .btn-fill:hover{opacity:.93;transform:translateY(-1px)}
 
-        /* ── Back Warning Modal ── */
+        /* ── Back Warning Modal (NO RED) ── */
         .warn-modal{max-width:440px;text-align:center;padding:34px 28px}
         .warn-icon{
-            width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,.14);
-            border:2px solid rgba(239,68,68,.3);color:var(--danger);font-size:2rem;
+            width:64px;height:64px;border-radius:50%;background:rgba(245,158,11,.16);
+            border:2px solid rgba(245,158,11,.4);color:#FBBF24;font-size:2rem;
             display:flex;align-items:center;justify-content:center;margin:0 auto 16px;
         }
         .warn-title{font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:8px}
@@ -446,22 +494,25 @@
             transition:all .2s;
         }
         .btn-secondary:hover{background:rgba(255,255,255,.1)}
-        .btn-danger{
-            flex:1;padding:12px;border-radius:11px;border:none;background:var(--danger);
-            color:#fff;font-weight:700;font-size:.9rem;transition:all .2s;
+        .btn-amber{
+            flex:1;padding:12px;border-radius:11px;border:none;background:#D97706;
+            color:#ffffff;font-weight:800;font-size:.9rem;transition:all .2s;
+            box-shadow:0 4px 15px rgba(217,119,6,0.35);
         }
-        .btn-danger:hover{background:#dc2626}
+        .btn-amber:hover{background:#B45309}
 
-        /* ── Front Page Birthday Celebration Modal & Animations ── */
+        /* ── ALL BIRTHDAY STUDENTS IN SAME SCREEN (AUTO-ADJUSTING) ── */
         .bday-modal-wrap{
             max-width:540px;
-            background:linear-gradient(180deg,#151329,#0e0e1a);
-            border:2px solid rgba(255,107,53,.4);
+            width:94%;
+            background:linear-gradient(180deg,#16142a,#0f0f1b);
+            border:2px solid rgba(255,179,71,.45);
             box-shadow:0 0 50px rgba(124,58,237,.35), 0 0 100px rgba(255,107,53,.25);
             text-align:center;
-            padding:36px 28px 28px;
+            padding:32px 24px 24px;
             overflow:hidden;
             position:relative;
+            transition:max-width .3s ease;
         }
         #bday-canvas{
             position:absolute;inset:0;pointer-events:none;z-index:0;
@@ -470,82 +521,140 @@
         .bday-badge-top{
             display:inline-flex;align-items:center;gap:6px;padding:6px 16px;
             border-radius:20px;background:linear-gradient(90deg,#7c3aed,#ec4899);
-            font-size:.82rem;font-weight:800;color:#fff;margin-bottom:14px;
+            font-size:.82rem;font-weight:800;color:#fff;margin-bottom:12px;
             letter-spacing:.5px;box-shadow:0 4px 15px rgba(236,72,153,.35);
         }
         .bday-title{
             font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:900;
             background:linear-gradient(135deg,#FFB347,#FF6B35,#ec4899);
             -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-            margin-bottom:18px;line-height:1.2;
+            margin-bottom:6px;line-height:1.2;
         }
-        
-        /* Prominent Box Photo for Birthday Boy/Girl */
+        .bday-subtitle{
+            font-size:.88rem;color:#FDE68A;font-weight:600;margin-bottom:18px;
+        }
+
+        /* Auto-adjusting Responsive Grid for Birthday Students on Same Screen */
+        .bday-students-grid{
+            display:grid;
+            gap:16px;
+            margin:0 auto 20px;
+            width:100%;
+            justify-content:center;
+            align-items:stretch;
+        }
+
+        /* 1 Student */
+        .bday-students-grid.count-1{
+            grid-template-columns:minmax(220px, 280px);
+        }
+        .bday-students-grid.count-1 .bday-photo-box{
+            width:190px;height:190px;
+        }
+        .bday-students-grid.count-1 .bday-card-name{
+            font-size:1.35rem;
+        }
+
+        /* 2 Students */
+        .bday-students-grid.count-2{
+            grid-template-columns:repeat(2, minmax(140px, 220px));
+        }
+        .bday-students-grid.count-2 .bday-photo-box{
+            width:140px;height:140px;
+        }
+        .bday-students-grid.count-2 .bday-card-name{
+            font-size:1.15rem;
+        }
+
+        /* 3 Students */
+        .bday-students-grid.count-3{
+            grid-template-columns:repeat(3, minmax(130px, 190px));
+        }
+        .bday-students-grid.count-3 .bday-photo-box{
+            width:120px;height:120px;
+        }
+        .bday-students-grid.count-3 .bday-card-name{
+            font-size:1.02rem;
+        }
+
+        /* 4 or more Students */
+        .bday-students-grid.count-many{
+            grid-template-columns:repeat(auto-fit, minmax(130px, 180px));
+            max-height:50vh;
+            overflow-y:auto;
+            padding:4px;
+        }
+        .bday-students-grid.count-many .bday-photo-box{
+            width:110px;height:110px;
+        }
+        .bday-students-grid.count-many .bday-card-name{
+            font-size:.96rem;
+        }
+
+        /* Individual Birthday Student Tile */
+        .bday-tile{
+            background:rgba(255,255,255,0.06);
+            border:2px solid rgba(255,179,71,0.45);
+            border-radius:18px;
+            padding:14px 10px;
+            text-align:center;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 8px 24px rgba(0,0,0,.4);
+            position:relative;
+            transition:transform .2s;
+        }
+        .bday-tile:hover{transform:translateY(-2px);border-color:#FFB347}
+
         .bday-photo-box{
-            width:200px;
-            height:200px;
-            margin:0 auto 16px;
-            border-radius:20px;
+            margin:0 auto 10px;
+            border-radius:16px;
             overflow:hidden;
-            border:3px solid #FFB347;
+            border:2.5px solid #FFB347;
             background:#18192d;
-            box-shadow:0 10px 30px rgba(0,0,0,.6), 0 0 25px rgba(255,179,71,.4);
+            box-shadow:0 6px 20px rgba(0,0,0,.6), 0 0 16px rgba(255,179,71,.35);
             position:relative;
             display:flex;
             align-items:center;
             justify-content:center;
-            transition:transform .4s ease, opacity .4s ease;
+            flex-shrink:0;
         }
         .bday-photo-box img{
             width:100%;height:100%;object-fit:cover;display:block;
         }
         .bday-photo-box .bday-char{
-            font-size:4.5rem;font-weight:900;color:#fff;
+            font-size:3.2rem;font-weight:900;color:#fff;
             display:flex;align-items:center;justify-content:center;width:100%;height:100%;
         }
-        .bday-stu-name{
+        .bday-card-name{
             font-family:'Poppins',sans-serif;
-            font-size:1.45rem;
             font-weight:800;
             color:#ffffff;
-            margin-bottom:6px;
-            letter-spacing:.3px;
-            transition:opacity .4s ease;
+            margin-bottom:3px;
+            letter-spacing:.2px;
+            word-break:break-word;
+            line-height:1.25;
         }
-        .bday-stu-batch{
-            font-size:.88rem;color:var(--txt2);font-weight:600;margin-bottom:16px;
+        .bday-card-batch{
+            font-size:.76rem;color:#FDE68A;font-weight:600;margin-bottom:6px;
         }
+        .bday-star-pill{
+            display:inline-flex;align-items:center;gap:4px;
+            font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:10px;
+            background:linear-gradient(90deg,rgba(255,107,53,.3),rgba(255,179,71,.3));
+            color:#FFB347;border:1px solid rgba(255,179,71,.4);
+        }
+
         .bday-msg-text{
-            font-size:.92rem;color:#FDE68A;line-height:1.6;font-weight:500;
-            background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.22);
-            border-radius:14px;padding:12px 18px;margin-bottom:20px;
-        }
-        .bday-carousel-controls{
-            display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;
-        }
-        .bday-nav-btn{
-            width:34px;height:34px;border-radius:50%;border:1px solid var(--border);
-            background:rgba(255,255,255,.08);color:#fff;font-size:1rem;
-            display:flex;align-items:center;justify-content:center;transition:all .2s;
-        }
-        .bday-nav-btn:hover{background:var(--primary);border-color:var(--primary)}
-        .bday-dots{display:flex;gap:7px;align-items:center}
-        .bday-dot{
-            width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);
-            transition:all .3s ease;
-        }
-        .bday-dot.active{width:24px;border-radius:6px;background:var(--primary)}
-        .bday-timer-bar{
-            width:100%;height:4px;background:rgba(255,255,255,.1);border-radius:4px;
-            overflow:hidden;margin-bottom:16px;display:none;
-        }
-        .bday-timer-progress{
-            height:100%;background:linear-gradient(90deg,#7c3aed,#FF6B35);
-            width:0%;transition:width 5s linear;
+            font-size:.9rem;color:#FDE68A;line-height:1.6;font-weight:500;
+            background:rgba(251,191,36,.09);border:1px solid rgba(251,191,36,.25);
+            border-radius:14px;padding:12px 18px;margin-bottom:18px;
         }
         .bday-close-btn{
-            width:100%;padding:13px;border-radius:12px;border:none;
-            background:var(--grad);color:#fff;font-size:.96rem;font-weight:700;
+            width:100%;padding:14px;border-radius:12px;border:none;
+            background:var(--grad);color:#fff;font-size:1rem;font-weight:800;
             box-shadow:0 6px 20px rgba(255,107,53,.35);transition:all .2s;
         }
         .bday-close-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,107,53,.5)}
@@ -561,7 +670,6 @@
         #toast.show{transform:translateX(0)}
 
         /* ── Responsive Adaptations for Smart Boards & Phones ── */
-        /* Large Displays / Smart Boards (1280px+) */
         @media(min-width:1280px){
             .stu-grid{grid-template-columns:repeat(auto-fill, minmax(215px, 1fr));gap:20px}
             .stu-name{font-size:1.1rem}
@@ -569,7 +677,6 @@
             .btn-cs{font-size:1.02rem;padding:14px 30px}
         }
 
-        /* Phones & Small Screens (≤ 640px) */
         @media(max-width:640px){
             header{padding:8px 0}
             .header-inner{padding:8px 14px}
@@ -587,12 +694,12 @@
                 grid-template-columns:repeat(2, 1fr);
                 gap:10px;
             }
-            .stu-card{padding:9px;border-radius:14px;border-width:2px}
+            .stu-card{padding:9px;border-radius:14px}
             .stu-box-frame{border-radius:10px}
             .stu-name{font-size:.92rem;line-height:1.22}
             .stu-reg{font-size:.68rem}
-            .stu-status-badge{font-size:.64rem;padding:2px 7px}
-            .state-icon{width:26px;height:26px;font-size:.78rem;top:7px;right:7px}
+            .stu-status-badge{font-size:.65rem;padding:3px 8px}
+            .state-icon{width:28px;height:28px;font-size:.8rem;top:7px;right:7px}
             .stu-char-avatar{font-size:2.4rem}
 
             /* Footer on Mobile */
@@ -602,9 +709,20 @@
             .btn-cs{width:100%;justify-content:center;padding:12px}
 
             .modal{padding:20px 16px;border-radius:18px}
-            .bday-photo-box{width:160px;height:160px;border-radius:16px}
+
+            /* Responsive Birthday Grid on mobile */
+            .bday-students-grid.count-2,
+            .bday-students-grid.count-3,
+            .bday-students-grid.count-many{
+                grid-template-columns:repeat(2, 1fr) !important;
+                gap:10px !important;
+            }
+            .bday-students-grid .bday-photo-box{
+                width:110px !important;height:110px !important;border-radius:12px;
+            }
             .bday-title{font-size:1.35rem}
-            .bday-stu-name{font-size:1.25rem}
+            .bday-card-name{font-size:.95rem !important}
+            .bday-modal-wrap{width:95vw !important;padding:24px 14px 18px !important}
         }
     </style>
 </head>
@@ -613,13 +731,13 @@
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
 
-    <!-- Birthday Top Notification Banner (Can be clicked to reopen celebration) -->
+    <!-- Birthday Top Notification Banner (Click to open celebration) -->
     <div id="bday-banner" onclick="openBirthdayCelebration()">
         <div class="bday-inner">
             <span>&#127874;</span>
             <span id="bday-banner-text">Birthday Celebration Today!</span>
             <span>&#127881;</span>
-            <span style="font-size:.75rem;opacity:.9;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:10px;margin-left:6px">&#128065;&#65039; View</span>
+            <span style="font-size:.75rem;opacity:.95;background:rgba(255,255,255,.25);padding:2px 8px;border-radius:10px;margin-left:6px">&#128065;&#65039; View</span>
         </div>
     </div>
 
@@ -695,7 +813,7 @@
         <!-- Error Card -->
         <div id="error-wrap">
             <h3 style="margin-bottom:8px">&#9888;&#65039; Failed to Load Data</h3>
-            <p id="error-msg" style="font-size:.85rem;opacity:.85">Could not fetch data. Make sure the Google Sheet is published &amp; publicly viewable.</p>
+            <p id="error-msg" style="font-size:.85rem;opacity:.9">Could not fetch data. Make sure the Google Sheet is published &amp; publicly viewable.</p>
             <button class="btn-primary" style="margin-top:18px;width:auto;display:inline-flex;padding:12px 28px" onclick="fetchSheetData()" type="button">&#8634; Retry</button>
         </div>
 
@@ -710,21 +828,21 @@
                 <button class="btn-back" onclick="requestGoBack()" type="button">&#8592; Change Selection</button>
             </div>
 
-            <!-- Hint & Tap Guide Legend -->
+            <!-- Hint & Tap Guide Legend (NO RED) -->
             <div class="hint hint-hw" id="hint-hw">
                 <strong>&#128218; Homework Check Mode</strong> &mdash; Tap on any student box:
                 <div class="legend">
-                    <div class="leg-item"><div class="leg-dot" style="background:var(--success)"></div>Default &mdash; HW Done &#9989;</div>
-                    <div class="leg-item"><div class="leg-dot" style="background:var(--danger)"></div>Single Tap &mdash; Not Done &#10060;</div>
-                    <div class="leg-item"><div class="leg-dot" style="background:var(--absent)"></div>Double Tap &mdash; Absent &#128683;</div>
+                    <div class="leg-item"><div class="leg-dot" style="background:#10B981"></div>Default &mdash; HW Done &#9989;</div>
+                    <div class="leg-item"><div class="leg-dot" style="background:#F59E0B"></div>Single Tap &mdash; Not Done &#9888;&#65039;</div>
+                    <div class="leg-item"><div class="leg-dot" style="background:#8B5CF6"></div>Double Tap &mdash; Absent &#128683;</div>
                     <div class="leg-item"><div class="leg-dot" style="background:var(--border-h)"></div>Tap Again &mdash; Reset</div>
                 </div>
             </div>
 
-            <!-- Bulk Mark Options -->
+            <!-- Bulk Mark Options (NO RED) -->
             <div class="bulk-row">
-                <button class="sm-btn" onclick="markAllNotDone()" type="button">&#10060; Mark All Not Done</button>
-                <button class="sm-btn red" onclick="clearAll()" type="button">&#8634; Reset All (HW Done)</button>
+                <button class="sm-btn amber-btn" onclick="markAllNotDone()" type="button">&#9888;&#65039; Mark All Not Done</button>
+                <button class="sm-btn green-btn" onclick="clearAll()" type="button">&#8634; Reset All (HW Done)</button>
             </div>
 
             <!-- Student Grid -->
@@ -732,7 +850,7 @@
         </div>
     </main>
 
-    <!-- Bottom Action & Stats Bar -->
+    <!-- Bottom Action & Stats Bar (NO RED) -->
     <div class="footer-bar" id="footer-bar" style="display:none">
         <div class="footer-inner">
             <div class="stats-row" id="stats-row"></div>
@@ -740,36 +858,20 @@
         </div>
     </div>
 
-    <!-- Front Page Birthday Celebration Modal with Confetti & Auto 5s Rotation -->
+    <!-- Front Page Birthday Celebration Modal: All Students on Same Screen + Confetti -->
     <div class="overlay" id="bday-overlay">
-        <div class="modal bday-modal-wrap">
+        <div class="modal bday-modal-wrap" id="bday-modal-box">
             <canvas id="bday-canvas"></canvas>
             <div class="bday-modal-content">
                 <div class="bday-badge-top">&#10024; TODAY'S SPECIAL CELEBRATION &#127881;</div>
                 <h2 class="bday-title">&#127874; Happy Birthday! &#127881;</h2>
+                <div class="bday-subtitle" id="bday-count-subtitle">Wishing our star students a fantastic birthday!</div>
 
-                <!-- Prominent Box Frame for Birthday Student Photo -->
-                <div class="bday-photo-box" id="bday-box">
-                    <img id="bday-photo" src="" alt="Birthday Student" style="display:none">
-                    <div id="bday-char" class="bday-char" style="display:none">?</div>
-                </div>
-
-                <div class="bday-stu-name" id="bday-name">Student Name</div>
-                <div class="bday-stu-batch" id="bday-meta">Batch: &mdash; | Reg No: &mdash;</div>
+                <!-- Responsive Grid: Multiple Students render on same screen -->
+                <div class="bday-students-grid" id="bday-students-grid"></div>
 
                 <div class="bday-msg-text">
                     &#127881; <em>Wishing you joy, good health, and glorious academic achievements on your special day!</em>
-                </div>
-
-                <!-- Carousel Controls if multiple students have birthdays -->
-                <div id="bday-controls" class="bday-carousel-controls" style="display:none">
-                    <button class="bday-nav-btn" onclick="prevBirthday()" title="Previous">&#10094;</button>
-                    <div class="bday-dots" id="bday-dots"></div>
-                    <button class="bday-nav-btn" onclick="nextBirthday()" title="Next">&#10095;</button>
-                </div>
-
-                <div class="bday-timer-bar" id="bday-timer-bar">
-                    <div class="bday-timer-progress" id="bday-timer-progress"></div>
                 </div>
 
                 <button class="bday-close-btn" onclick="closeBirthdayModal()" type="button">
@@ -779,7 +881,7 @@
         </div>
     </div>
 
-    <!-- Back Confirmation Warning Modal -->
+    <!-- Back Confirmation Warning Modal (NO RED) -->
     <div class="overlay" id="warn-overlay">
         <div class="modal warn-modal">
             <div class="warn-icon">&#9888;&#65039;</div>
@@ -789,7 +891,7 @@
             </div>
             <div class="warn-actions">
                 <button class="btn-secondary" onclick="closeOverlay('warn-overlay')" type="button">Stay Here</button>
-                <button class="btn-danger" onclick="confirmGoBack()" type="button">Yes, Go Back</button>
+                <button class="btn-amber" onclick="confirmGoBack()" type="button">Yes, Go Back</button>
             </div>
         </div>
     </div>
@@ -837,15 +939,15 @@
 
         /* ── STATE CONSTANTS ───────────────────────────────── */
         const S_DONE     = 0;   // HW Done (Default)
-        const S_NOT_DONE = 1;   // Single Tap -> Not Done
-        const S_ABSENT   = 2;   // Double Tap -> Absent
+        const S_NOT_DONE = 1;   // Single Tap -> Not Done (Sunburst Amber)
+        const S_ABSENT   = 2;   // Double Tap -> Absent (Neon Violet)
 
         /* ── DIVERSE PALETTES FOR RANDOM INITIAL AVATARS ───── */
         const AVATAR_PALETTES = [
             ['#FF6B35','#FF9F43'], ['#7C3AED','#A855F7'], ['#059669','#10B981'],
-            ['#0284C7','#38BDF8'], ['#DB2777','#F472B6'], ['#D97706','#FBBF24'],
-            ['#DC2626','#F87171'], ['#0891B2','#06B6D4'], ['#65A30D','#84CC16'],
-            ['#4F46E5','#6366F1'], ['#BE185D','#E11D48'], ['#0D9488','#14B8A6'],
+            ['#0284C7','#38BDF8'], ['#8B5CF6','#C084FC'], ['#D97706','#FBBF24'],
+            ['#0891B2','#06B6D4'], ['#65A30D','#84CC16'], ['#4F46E5','#6366F1'],
+            ['#0D9488','#14B8A6'], ['#CA8A04','#EAB308'], ['#2563EB','#60A5FA']
         ];
 
         /* ── APP STATE ─────────────────────────────────────── */
@@ -853,8 +955,6 @@
         let batchStudents  = [];
         let cardStates     = [];
         let birthdayList   = [];
-        let currentBdayIdx = 0;
-        let bdayRotateTimer= null;
         let googleFormUrl  = localStorage.getItem('gFormUrl') || DEFAULT_FORM;
         let lastTap        = { idx: -1, time: 0 };
         const DBL_MS       = 380;
@@ -884,7 +984,6 @@
             // Browser back button interception
             window.addEventListener('popstate', (e) => {
                 if (isStudentsView) {
-                    // Prevent immediate back navigation & show warning
                     history.pushState({ inStudents: true }, '');
                     requestGoBack();
                 }
@@ -964,7 +1063,7 @@
             if (!dob) return null;
             const s = String(dob).trim();
             
-            // 1. Google Sheets GViz date object: Date(yyyy, m, d) -> m is 0-indexed!
+            // 1. Google Sheets GViz date object: Date(yyyy, m, d) -> m is 0-indexed
             let m = s.match(/Date\((\d+),(\d+),(\d+)\)/);
             if (m) {
                 const mm = pad(+m[2] + 1);
@@ -999,7 +1098,7 @@
             return null;
         }
 
-        /* ── BIRTHDAY CELEBRATION (Front Page Overlay + 5s Auto Rotate) ── */
+        /* ── ALL BIRTHDAY STUDENTS SHOWN TOGETHER ON SAME SCREEN ── */
         function checkBirthdays() {
             const now = new Date();
             const todayMD = pad(now.getMonth() + 1) + '-' + pad(now.getDate()); // MM-DD
@@ -1017,7 +1116,7 @@
             if (birthdayList.length === 1) {
                 document.getElementById('bday-banner-text').textContent = '🎂 Happy Birthday, ' + birthdayList[0].name + '! 🎉';
             } else {
-                document.getElementById('bday-banner-text').textContent = '🎂 ' + birthdayList.length + ' Students have Birthdays Today! 🎉';
+                document.getElementById('bday-banner-text').textContent = '🎂 ' + birthdayList.length + ' Students Celebrate Birthdays Today! 🎉';
             }
 
             // Pop up front-page celebratory card automatically
@@ -1026,97 +1125,64 @@
 
         function openBirthdayCelebration() {
             if (!birthdayList.length) return;
-            currentBdayIdx = 0;
-            renderBirthdaySlide(0);
+            renderAllBirthdaysOnScreen();
             openOverlay('bday-overlay');
             startConfetti();
-            startBdayRotation();
         }
 
         function closeBirthdayModal() {
             closeOverlay('bday-overlay');
-            stopBdayRotation();
             stopConfetti();
         }
 
-        function renderBirthdaySlide(idx) {
-            const s = birthdayList[idx];
-            if (!s) return;
+        /* Renders all birthday students onto the same screen, scaling sizes automatically */
+        function renderAllBirthdaysOnScreen() {
+            const grid = document.getElementById('bday-students-grid');
+            const box  = document.getElementById('bday-modal-box');
+            const sub  = document.getElementById('bday-count-subtitle');
+            const count = birthdayList.length;
 
-            const nameEl  = document.getElementById('bday-name');
-            const metaEl  = document.getElementById('bday-meta');
-            const photoEl = document.getElementById('bday-photo');
-            const charEl  = document.getElementById('bday-char');
-            const boxEl   = document.getElementById('bday-box');
+            // Reset class list on grid
+            grid.className = 'bday-students-grid';
 
-            nameEl.textContent = s.name;
-            metaEl.textContent = 'Batch: ' + (s.batch || '—') + (s.reg_no ? ' | Reg: ' + s.reg_no : '');
-
-            const hasPhoto = s.photo && s.photo.startsWith('http');
-            const grad     = avatarGrad(s.name);
-
-            if (hasPhoto) {
-                photoEl.style.display = 'block';
-                charEl.style.display  = 'none';
-                photoEl.src = s.photo;
-                photoEl.onerror = function() {
-                    this.style.display = 'none';
-                    charEl.style.display = 'flex';
-                    charEl.textContent = (s.name.trim()[0] || '?').toUpperCase();
-                    boxEl.style.background = grad;
-                };
+            if (count === 1) {
+                grid.classList.add('count-1');
+                box.style.maxWidth = '520px';
+                sub.textContent = 'Special Birthday Wishes to our Star Student!';
+            } else if (count === 2) {
+                grid.classList.add('count-2');
+                box.style.maxWidth = '640px';
+                sub.textContent = 'Special Birthday Wishes to our 2 Star Students Today!';
+            } else if (count === 3) {
+                grid.classList.add('count-3');
+                box.style.maxWidth = '780px';
+                sub.textContent = 'Special Birthday Wishes to our 3 Star Students Today!';
             } else {
-                photoEl.style.display = 'none';
-                charEl.style.display  = 'flex';
-                charEl.textContent   = (s.name.trim()[0] || '?').toUpperCase();
-                boxEl.style.background = grad;
+                grid.classList.add('count-many');
+                box.style.maxWidth = '860px';
+                sub.textContent = 'Special Birthday Celebrations for ' + count + ' Students Today!';
             }
 
-            // Carousel controls & dots
-            const ctrlEl = document.getElementById('bday-controls');
-            const dotsEl = document.getElementById('bday-dots');
-            if (birthdayList.length > 1) {
-                ctrlEl.style.display = 'flex';
-                dotsEl.innerHTML = birthdayList.map((_, i) =>
-                    '<div class="bday-dot ' + (i === idx ? 'active' : '') + '"></div>'
-                ).join('');
-            } else {
-                ctrlEl.style.display = 'none';
-            }
-        }
+            grid.innerHTML = birthdayList.map((s, idx) => {
+                const initial  = (s.name.trim()[0] || '?').toUpperCase();
+                const hasPhoto = s.photo && s.photo.startsWith('http');
+                const grad     = avatarGrad(s.name);
 
-        function nextBirthday() {
-            if (birthdayList.length <= 1) return;
-            currentBdayIdx = (currentBdayIdx + 1) % birthdayList.length;
-            renderBirthdaySlide(currentBdayIdx);
-            resetBdayRotation();
-        }
+                const photoHtml = hasPhoto
+                    ? '<img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '" ' +
+                      'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';this.parentElement.style.background=\'' + grad + '\'">' +
+                      '<div class="bday-char" style="display:none;background:' + grad + '">' + initial + '</div>'
+                    : '<div class="bday-char" style="background:' + grad + '">' + initial + '</div>';
 
-        function prevBirthday() {
-            if (birthdayList.length <= 1) return;
-            currentBdayIdx = (currentBdayIdx - 1 + birthdayList.length) % birthdayList.length;
-            renderBirthdaySlide(currentBdayIdx);
-            resetBdayRotation();
-        }
-
-        function startBdayRotation() {
-            stopBdayRotation();
-            if (birthdayList.length <= 1) return;
-            bdayRotateTimer = setInterval(() => {
-                nextBirthday();
-            }, 5000);
-        }
-
-        function stopBdayRotation() {
-            if (bdayRotateTimer) {
-                clearInterval(bdayRotateTimer);
-                bdayRotateTimer = null;
-            }
-        }
-
-        function resetBdayRotation() {
-            stopBdayRotation();
-            startBdayRotation();
+                return '<div class="bday-tile">' +
+                    '<div class="bday-photo-box" style="background:' + grad + '">' +
+                        photoHtml +
+                    '</div>' +
+                    '<div class="bday-card-name">' + esc(s.name) + '</div>' +
+                    '<div class="bday-card-batch">' + esc(s.batch) + (s.reg_no ? ' &bull; ' + esc(s.reg_no) : '') + '</div>' +
+                    '<div class="bday-star-pill">&#127874; Birthday Star</div>' +
+                    '</div>';
+            }).join('');
         }
 
         /* ── CONFETTI PARTICLES FOR BIRTHDAY CELEBRATION ───── */
@@ -1130,7 +1196,7 @@
 
             const particles = [];
             const colors = ['#FF6B35','#FFB347','#EC4899','#8B5CF6','#10B981','#FBBF24','#38BDF8'];
-            for (let i = 0; i < 75; i++) {
+            for (let i = 0; i < 80; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height - canvas.height,
@@ -1260,7 +1326,7 @@
             }).join('');
         }
 
-        /* ── TAP HANDLER (Single Tap: Not Done | Double Tap: Absent) ── */
+        /* ── TAP HANDLER (Single: Not Done [Amber] | Double: Absent [Violet]) ── */
         function handleTap(i, event) {
             const now      = Date.now();
             const isDouble = (lastTap.idx === i) && (now - lastTap.time) <= DBL_MS;
@@ -1293,11 +1359,11 @@
 
             if (st === S_NOT_DONE) {
                 card.classList.add('not-done');
-                badge.textContent = 'Not Done';
-                icon.textContent  = '\u274C';
+                badge.textContent = '\u26A0\uFE0F Not Done';
+                icon.textContent  = '\u26A0\uFE0F';
             } else if (st === S_ABSENT) {
                 card.classList.add('absent');
-                badge.textContent = 'Absent';
+                badge.textContent = '\uD83D\uDEAB Absent';
                 icon.textContent  = '\uD83D\uDEAB';
             } else {
                 badge.textContent = 'Done';
@@ -1308,8 +1374,8 @@
         function spawnRipple(i) {
             const card = document.getElementById('sc-' + i);
             if (!card) return;
-            const color = cardStates[i] === S_ABSENT ? 'rgba(139,92,246,.3)'
-                        : cardStates[i] === S_NOT_DONE ? 'rgba(239,68,68,.3)'
+            const color = cardStates[i] === S_ABSENT ? 'rgba(139,92,246,.4)'
+                        : cardStates[i] === S_NOT_DONE ? 'rgba(245,158,11,.4)'
                         : 'rgba(16,185,129,.25)';
             const r = document.createElement('div');
             r.className = 'ripple-el';
@@ -1330,24 +1396,23 @@
             toast('Reset all to HW Done');
         }
 
-        /* ── STATS COUNTER ─────────────────────────────────── */
+        /* ── STATS COUNTER (NO RED) ────────────────────────── */
         function updateStats() {
             const total   = batchStudents.length;
             const absent  = cardStates.filter(s => s === S_ABSENT).length;
             const notDone = cardStates.filter(s => s === S_NOT_DONE).length;
             const done    = total - absent - notDone;
             document.getElementById('stats-row').innerHTML =
-                '<div class="stat-item"><div class="stat-dot" style="background:var(--success)"></div>' +
-                '<span style="color:var(--success);font-weight:800">' + done    + ' HW Done \u2705</span></div>' +
-                '<div class="stat-item"><div class="stat-dot" style="background:var(--danger)"></div>' +
-                '<span style="color:var(--danger);font-weight:800">'  + notDone + ' Not Done \u274C</span></div>' +
-                '<div class="stat-item"><div class="stat-dot" style="background:var(--absent)"></div>' +
-                '<span style="color:var(--absent);font-weight:800">'  + absent  + ' Absent \uD83D\uDEAB</span></div>';
+                '<div class="stat-item"><div class="stat-dot" style="background:#10B981"></div>' +
+                '<span style="color:#10B981;font-weight:800">' + done    + ' HW Done \u2705</span></div>' +
+                '<div class="stat-item"><div class="stat-dot" style="background:#F59E0B"></div>' +
+                '<span style="color:#F59E0B;font-weight:800">'  + notDone + ' Not Done \u26A0\uFE0F</span></div>' +
+                '<div class="stat-item"><div class="stat-dot" style="background:#8B5CF6"></div>' +
+                '<span style="color:#8B5CF6;font-weight:800">'  + absent  + ' Absent \uD83D\uDEAB</span></div>';
         }
 
         /* ── BACK BUTTON WARNING FLOW ──────────────────────── */
         function requestGoBack() {
-            // Check if any modifications were made
             const hasMarks = cardStates.some(s => s !== S_DONE);
             if (hasMarks) {
                 openOverlay('warn-overlay');
@@ -1367,7 +1432,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* ── PROFESSIONAL WHATSAPP COPY MESSAGE ─────────────── */
+        /* ── PROFESSIONAL WHATSAPP COPY MESSAGE (NO RED) ───── */
         function generateMessage() {
             const dateVal     = document.getElementById('date-inp').value;
             const subject     = document.getElementById('subject-sel').value;
@@ -1397,7 +1462,7 @@
                 msg += numList(absentList) + '\n\n';
             }
             if (notDoneList.length > 0) {
-                msg += '\u274C *HOMEWORK NOT SUBMITTED (' + notDoneList.length + ' student' + (notDoneList.length > 1 ? 's' : '') + '):*\n';
+                msg += '\u26A0\uFE0F *HOMEWORK NOT SUBMITTED (' + notDoneList.length + ' student' + (notDoneList.length > 1 ? 's' : '') + '):*\n';
                 msg += numList(notDoneList) + '\n\n';
             }
             if (doneList.length > 0) {
@@ -1407,7 +1472,7 @@
 
             msg += DIV + '\n';
             msg += '\uD83D\uDCCC *Gentle Reminders:*\n';
-            msg += '  \u2022 Please ensure your ward completes all homework assignments diligently.\n';
+            msg += '  \u2022 Please ensure your ward completes all homework assignments regularly.\n';
             msg += '  \u2022 Regular attendance is essential for strong concept mastery.\n';
             msg += '  \u2022 Encourage daily revision of class notes.\n\n';
             msg += 'For any queries or academic guidance, please feel free to reach out.\n\n';
@@ -1468,8 +1533,8 @@
             const el = document.getElementById('toast');
             document.getElementById('toast-icon').textContent = type === 'err' ? '\u26A0\uFE0F' : '\u2705';
             document.getElementById('toast-msg').textContent  = msg;
-            el.style.borderColor = type === 'err' ? 'var(--danger)' : 'var(--success)';
-            el.style.color       = type === 'err' ? 'var(--danger)' : 'var(--success)';
+            el.style.borderColor = type === 'err' ? '#F59E0B' : 'var(--success)';
+            el.style.color       = type === 'err' ? '#FBBF24' : 'var(--success)';
             el.classList.add('show');
             clearTimeout(toastTmr);
             toastTmr = setTimeout(() => el.classList.remove('show'), 3200);
